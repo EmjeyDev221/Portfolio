@@ -16,7 +16,7 @@
         <?= htmlspecialchars($pageTitle ?? 'Portfolio') ?>
     </title>
 
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="/Portfolio/assets/style.css">
 
 </head>
 

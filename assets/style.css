@@ -1,7 +1,6 @@
 /* =========================================================
    MARK JOSEPH SOL - PORTFOLIO
-   Shared stylesheet
-   File: assets/style.css
+   Simple responsive stylesheet
    ========================================================= */
 
 * {
@@ -45,16 +44,14 @@ textarea {
 .portfolio-section {
     min-height: 100vh;
     padding: 110px 0 90px;
-    scroll-margin-top: 72px;
+    scroll-margin-top: 70px;
 }
 
 .portfolio-section:nth-of-type(even) {
-    background: #f6f6f4;
+    background: #f7f7f5;
 }
 
-/* =========================
-   NAVBAR
-   ========================= */
+/* NAVBAR */
 
 .navbar {
     position: fixed;
@@ -62,7 +59,7 @@ textarea {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(255,255,255,.97);
+    background: rgba(255, 255, 255, 0.97);
     border-bottom: 1px solid #e5e5e5;
 }
 
@@ -91,7 +88,7 @@ textarea {
 .nav-links a {
     font-size: 14px;
     font-weight: 700;
-    transition: .2s ease;
+    transition: 0.2s ease;
 }
 
 .nav-links a:hover {
@@ -112,9 +109,7 @@ textarea {
     cursor: pointer;
 }
 
-/* =========================
-   COMMON SECTION HEADING
-   ========================= */
+/* SECTION HEADINGS */
 
 .section-heading {
     width: min(1050px, 90%);
@@ -139,21 +134,6 @@ textarea {
     letter-spacing: 1px;
 }
 
-.section-heading.centered {
-    width: 100%;
-}
-
-.section-heading.centered span {
-    display: block;
-    width: auto;
-    height: auto;
-    background: transparent;
-    color: #777;
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
 .eyebrow {
     color: #777;
     font-size: 12px;
@@ -162,19 +142,16 @@ textarea {
     text-transform: uppercase;
 }
 
-/* =========================
-   HOME
-   ========================= */
+/* HOME */
 
 #home {
-    display: block;
     background: #fff;
 }
 
 .home-layout {
     min-height: 620px;
     display: grid;
-    grid-template-columns: 1.15fr .85fr;
+    grid-template-columns: 1.15fr 0.85fr;
     align-items: center;
     gap: 70px;
 }
@@ -183,7 +160,7 @@ textarea {
     max-width: 720px;
     margin: 8px 0 15px;
     font-size: clamp(48px, 7vw, 82px);
-    line-height: .98;
+    line-height: 0.98;
     letter-spacing: -4px;
 }
 
@@ -218,7 +195,7 @@ textarea {
     padding: 0 22px;
     border-radius: 6px;
     font-weight: 700;
-    transition: .2s ease;
+    transition: 0.2s ease;
 }
 
 .btn-primary {
@@ -268,6 +245,21 @@ textarea {
     padding-bottom: 30px;
 }
 
+.section-heading.centered {
+    width: 100%;
+}
+
+.section-heading.centered span {
+    display: block;
+    width: auto;
+    height: auto;
+    background: transparent;
+    color: #777;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
 .service-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -301,64 +293,78 @@ textarea {
     color: #666;
 }
 
-/* =========================
-   ABOUT
-   ========================= */
+/* ABOUT */
 
-.about-section {
+.about-section,
+.skills-section,
+.projects-section,
+.experience-section,
+.contact-section {
     width: min(1050px, 90%);
     margin: 0 auto;
 }
 
-.about-grid {
-    display: grid;
-    grid-template-columns: .85fr 1.15fr;
-    gap: 25px;
+.about-content {
+    max-width: 980px;
+    margin: 0 auto;
 }
 
-.about-card {
-    padding: 30px;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
+.about-intro {
+    max-width: 850px;
+    margin: 0 auto 35px;
 }
 
-.about-card h3 {
-    margin-bottom: 10px;
-    font-size: 22px;
+.about-intro h3 {
+    margin: 8px 0 12px;
+    font-size: clamp(24px, 3vw, 32px);
+    line-height: 1.2;
 }
 
-.about-card p {
+.about-intro p {
+    margin-bottom: 8px;
     color: #555;
 }
 
-.about-card + .about-card {
-    margin-top: 18px;
-}
-
-.about-list {
-    list-style: none;
+.about-info-grid {
     display: grid;
-    gap: 13px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
 }
 
-.about-list li {
-    padding-bottom: 12px;
-    border-bottom: 1px solid #eee;
+.about-info-card {
+    min-height: 135px;
+    padding: 22px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 9px;
+    transition: 0.2s ease;
 }
 
-.about-list strong {
+.about-info-card:hover {
+    border-color: #111;
+    transform: translateY(-2px);
+}
+
+.about-info-number {
     display: block;
+    margin-bottom: 12px;
+    color: #777;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
-/* =========================
-   SKILLS
-   ========================= */
-
-.skills-section {
-    width: min(1050px, 90%);
-    margin: 0 auto;
+.about-info-card h4 {
+    margin-bottom: 6px;
+    font-size: 15px;
 }
+
+.about-info-card p {
+    color: #555;
+    font-size: 13px;
+}
+
+/* SKILLS */
 
 .skills-grid {
     display: grid;
@@ -375,7 +381,7 @@ textarea {
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 10px;
-    transition: .2s ease;
+    transition: 0.2s ease;
 }
 
 .skill-card:hover {
@@ -392,14 +398,7 @@ textarea {
     font-size: 12px;
 }
 
-/* =========================
-   PROJECTS
-   ========================= */
-
-.projects-section {
-    width: min(1050px, 90%);
-    margin: 0 auto;
-}
+/* PROJECTS */
 
 .projects-grid {
     display: grid;
@@ -445,14 +444,7 @@ textarea {
     text-decoration: underline;
 }
 
-/* =========================
-   EXPERIENCE
-   ========================= */
-
-.experience-section {
-    width: min(1050px, 90%);
-    margin: 0 auto;
-}
+/* EXPERIENCE */
 
 .timeline {
     position: relative;
@@ -513,9 +505,7 @@ textarea {
     color: #555;
 }
 
-/* =========================
-   RESUME
-   ========================= */
+/* RESUME */
 
 .resume-section {
     width: min(900px, 90%);
@@ -541,9 +531,7 @@ textarea {
     color: #555;
 }
 
-/* =========================
-   CONTACT
-   ========================= */
+/* CONTACT */
 
 .contact-section {
     width: min(1050px, 90%);
@@ -552,7 +540,7 @@ textarea {
 
 .contact-grid {
     display: grid;
-    grid-template-columns: .8fr 1.2fr;
+    grid-template-columns: 0.8fr 1.2fr;
     gap: 25px;
 }
 
@@ -616,9 +604,7 @@ textarea {
     border-radius: 6px;
 }
 
-/* =========================
-   HIRE
-   ========================= */
+/* HIRE */
 
 .hire-section {
     width: min(900px, 90%);
@@ -641,9 +627,7 @@ textarea {
     color: #555;
 }
 
-/* =========================
-   SIDEBAR
-   ========================= */
+/* SIDEBAR */
 
 .social-sidebar {
     position: fixed;
@@ -665,9 +649,7 @@ textarea {
     color: #111;
 }
 
-/* =========================
-   FOOTER
-   ========================= */
+/* FOOTER */
 
 .footer {
     padding: 35px 0;
@@ -685,14 +667,12 @@ textarea {
     color: #bbb;
 }
 
-/* =========================
-   REVEAL
-   ========================= */
+/* REVEAL */
 
 .reveal {
     opacity: 0;
     transform: translateY(18px);
-    transition: opacity .6s ease, transform .6s ease;
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .reveal.visible {
@@ -700,9 +680,7 @@ textarea {
     transform: translateY(0);
 }
 
-/* =========================
-   MOBILE
-   ========================= */
+/* MOBILE */
 
 @media (max-width: 850px) {
     .menu-toggle {
@@ -727,7 +705,6 @@ textarea {
     }
 
     .home-layout,
-    .about-grid,
     .contact-grid {
         grid-template-columns: 1fr;
     }
@@ -737,7 +714,8 @@ textarea {
     }
 
     .service-grid,
-    .skills-grid {
+    .skills-grid,
+    .about-info-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -761,7 +739,8 @@ textarea {
     }
 
     .service-grid,
-    .skills-grid {
+    .skills-grid,
+    .about-info-grid {
         grid-template-columns: 1fr;
     }
 
@@ -792,3 +771,434 @@ textarea {
         flex-direction: column;
     }
 }
+
+
+/* =========================================================
+   SECTION POLISH
+   About • Skills • Projects • Contact
+   Clean, simple and responsive
+   ========================================================= */
+
+/* ABOUT */
+
+#about {
+    background: #f8f8f6;
+}
+
+#about .section-heading {
+    margin-bottom: 42px;
+}
+
+#about .about-content {
+    max-width: 1000px;
+}
+
+#about .about-intro {
+    padding: 30px 34px;
+    background: #ffffff;
+    border: 1px solid #e3e3e3;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.035);
+}
+
+#about .about-intro h3 {
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+#about .about-intro p {
+    max-width: 850px;
+    color: #555;
+}
+
+#about .about-info-grid {
+    margin-top: 20px;
+    gap: 18px;
+}
+
+#about .about-info-card {
+    min-height: 150px;
+    padding: 24px;
+    background: #fff;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    transition: border-color .2s ease, transform .2s ease;
+}
+
+#about .about-info-card:hover {
+    border-color: #111;
+    transform: translateY(-3px);
+}
+
+#about .about-info-number {
+    display: inline-block;
+    margin-bottom: 12px;
+    padding: 4px 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #555;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+#about .about-info-card h4 {
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+
+/* SKILLS */
+
+#skills {
+    background: #ffffff;
+}
+
+#skills .section-heading {
+    margin-bottom: 42px;
+}
+
+#skills .skills-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+#skills .skill-card {
+    position: relative;
+    min-height: 125px;
+    padding: 22px 24px;
+    background: #fafafa;
+    border: 1px solid #e2e2e2;
+    border-radius: 9px;
+    transition: border-color .2s ease, transform .2s ease, background .2s ease;
+}
+
+#skills .skill-card::before {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 2px;
+    margin-bottom: 17px;
+    background: #111;
+}
+
+#skills .skill-card:hover {
+    background: #fff;
+    border-color: #111;
+    transform: translateY(-3px);
+}
+
+#skills .skill-card h3 {
+    margin-bottom: 7px;
+    font-size: 17px;
+}
+
+#skills .skill-card span {
+    color: #777;
+}
+
+
+/* PROJECTS */
+
+#projects {
+    background: #f8f8f6;
+}
+
+#projects .section-heading {
+    margin-bottom: 42px;
+}
+
+#projects .projects-grid {
+    max-width: 1050px;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+#projects .project-card {
+    position: relative;
+    background: #fff;
+    border: 1px solid #dedede;
+    border-radius: 10px;
+    transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+#projects .project-card:hover {
+    border-color: #111;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+#projects .project-content {
+    padding: 26px;
+}
+
+#projects .project-content h3 {
+    margin: 6px 0 10px;
+    font-size: 21px;
+    line-height: 1.3;
+}
+
+#projects .project-content p {
+    color: #5d5d5d;
+    line-height: 1.7;
+}
+
+#projects .project-content::before {
+    content: "PROJECT";
+    display: block;
+    color: #777;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+#projects .project-link {
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid #111;
+}
+
+#projects .project-link:hover {
+    color: #777;
+    border-color: #777;
+}
+
+#projects .project-tech,
+#projects .tech-stack,
+#projects .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 17px;
+}
+
+#projects .project-tech span,
+#projects .tech-stack span,
+#projects .project-tags span {
+    padding: 4px 9px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #555;
+    background: #fafafa;
+    font-size: 11px;
+}
+
+
+/* CONTACT */
+
+#contact {
+    background: #ffffff;
+}
+
+#contact .section-heading {
+    margin-bottom: 42px;
+}
+
+#contact .contact-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    grid-template-columns: .85fr 1.15fr;
+    gap: 20px;
+    align-items: stretch;
+}
+
+#contact .contact-info,
+#contact .contact-form {
+    background: #fff;
+    border: 1px solid #dedede;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.035);
+}
+
+#contact .contact-info {
+    padding: 30px;
+}
+
+#contact .contact-info h3 {
+    margin: 6px 0 12px;
+    font-size: 24px;
+}
+
+#contact .contact-info p {
+    color: #5d5d5d;
+    margin-bottom: 16px;
+}
+
+#contact .contact-info a {
+    display: block;
+    width: fit-content;
+    margin-top: 8px;
+    color: #333;
+    font-weight: 600;
+}
+
+#contact .contact-info a:hover {
+    color: #777;
+}
+
+#contact .contact-form {
+    padding: 30px;
+}
+
+#contact .contact-form h3 {
+    margin-bottom: 18px;
+    font-size: 20px;
+}
+
+#contact .form-group {
+    margin-bottom: 16px;
+}
+
+#contact .form-group label {
+    margin-bottom: 6px;
+    color: #333;
+    font-size: 13px;
+}
+
+#contact .form-group input,
+#contact .form-group textarea {
+    background: #fafafa;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    transition: border-color .2s ease, background .2s ease;
+}
+
+#contact .form-group input:focus,
+#contact .form-group textarea:focus {
+    background: #fff;
+    border-color: #111;
+}
+
+#contact .form-group textarea {
+    min-height: 145px;
+}
+
+#contact .btn {
+    border: 1px solid #111;
+    cursor: pointer;
+}
+
+
+/* RESPONSIVE POLISH */
+
+@media (max-width: 850px) {
+    #skills .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #projects .projects-grid,
+    #contact .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #about .about-info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 560px) {
+    #about .about-intro,
+    #about .about-info-card,
+    #contact .contact-info,
+    #contact .contact-form {
+        padding: 22px;
+    }
+
+    #about .about-info-grid,
+    #skills .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #projects .project-content {
+        padding: 22px;
+    }
+}
+
+/* =========================================================
+   FINAL POLISH — ABOUT / TOOLS / PROJECTS / CONTACT
+   ========================================================= */
+
+/* ABOUT */
+#about .about-intro{position:relative;padding:32px 36px;background:#fff;border:1px solid #dedede;border-radius:14px;box-shadow:0 8px 30px rgba(0,0,0,.035)}
+#about .about-intro h3{margin:8px 0 14px;font-size:28px;line-height:1.25}
+#about .about-intro p{max-width:850px;margin-bottom:8px;color:#555;line-height:1.8}
+#about .about-info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+#about .about-info-card{position:relative;min-height:165px;padding:25px;overflow:hidden;background:#fff;border:1px solid #dedede;border-radius:12px;box-shadow:0 6px 22px rgba(0,0,0,.025);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+#about .about-info-card:hover{transform:translateY(-5px);border-color:#111;box-shadow:0 12px 28px rgba(0,0,0,.07)}
+#about .about-info-number{display:block;width:max-content;min-width:42px;margin-bottom:15px;padding:5px 10px;background:#111;color:#fff;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:1px;text-align:center}
+#about .about-info-card h4{margin:0 0 8px;font-size:17px;line-height:1.4}
+#about .about-info-card p{margin:0;color:#666;font-size:13px;line-height:1.65}
+#about .about-info-card::after{content:"";position:absolute;right:-20px;bottom:-20px;width:85px;height:85px;border:1px solid #eee;border-radius:50%;pointer-events:none}
+
+/* TOOLS / SKILLS */
+#skills .skills-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+#skills .skill-card{position:relative;min-height:115px;padding:22px 22px 22px 52px;background:#fff;border:1px solid #dedede;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.025);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+#skills .skill-card::before{content:"";position:absolute;left:23px;top:27px;width:9px;height:9px;background:#111;border-radius:50%}
+#skills .skill-card::after{content:"";position:absolute;left:26px;top:44px;width:2px;height:48px;background:#e5e5e5}
+#skills .skill-card h3{position:relative;z-index:2;margin:0 0 7px;font-size:17px;line-height:1.4}
+#skills .skill-card span{position:relative;z-index:2;display:block;color:#777;font-size:12px;line-height:1.6}
+#skills .skill-card:hover{transform:translateY(-5px);border-color:#111;box-shadow:0 12px 28px rgba(0,0,0,.07)}
+#skills ul,#skills ol{margin:0;padding:0;list-style:none}
+#skills ul li,#skills ol li{position:relative;padding-left:24px;margin-bottom:11px;line-height:1.6}
+#skills ul li::before,#skills ol li::before{content:"";position:absolute;left:3px;top:.7em;width:7px;height:7px;background:#111;border-radius:50%}
+
+/* PROJECTS */
+#projects .projects-grid{max-width:1050px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:24px;align-items:stretch}
+#projects .project-card{position:relative;display:flex;flex-direction:column;min-height:100%;overflow:hidden;background:#fff;border:1px solid #dedede;border-radius:14px;box-shadow:0 7px 25px rgba(0,0,0,.025);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+#projects .project-card::before{content:"";position:absolute;left:0;top:0;width:4px;height:100%;background:#111;transform:scaleY(0);transform-origin:top;transition:transform .3s ease;z-index:5}
+#projects .project-card:hover::before{transform:scaleY(1)}
+#projects .project-card:hover{transform:translateY(-6px);border-color:#111;box-shadow:0 16px 35px rgba(0,0,0,.08)}
+#projects .project-content{display:flex;flex-direction:column;flex:1;padding:28px}
+#projects .project-content::before{content:"PROJECT";display:inline-block;width:max-content;margin-bottom:8px;color:#777;font-size:10px;font-weight:800;letter-spacing:1.8px}
+#projects .project-content h3{margin:0 0 12px;max-width:90%;font-size:21px;line-height:1.35}
+#projects .project-content p{flex:1;margin-bottom:20px;color:#5d5d5d;font-size:14px;line-height:1.75}
+#projects .project-tech,#projects .tech-stack,#projects .project-tags{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:auto}
+#projects .project-tech span,#projects .tech-stack span,#projects .project-tags span{display:inline-flex;align-items:center;gap:7px;padding:6px 11px;background:#f7f7f5;color:#555;border:1px solid #dedede;border-radius:999px;font-size:11px;font-weight:600}
+#projects .project-tech span::before,#projects .tech-stack span::before,#projects .project-tags span::before{content:"";width:5px;height:5px;flex:0 0 5px;background:#111;border-radius:50%}
+#projects .project-link{display:inline-flex;align-items:center;width:max-content;margin-top:18px;padding-bottom:3px;color:#111;font-size:13px;font-weight:700;border-bottom:1px solid #111;transition:.2s ease}
+#projects .project-link:hover{color:#777;border-color:#777;transform:translateX(3px)}
+#projects .project-content ul,#projects .project-content ol{margin:0 0 18px;padding:0;list-style:none}
+#projects .project-content li{position:relative;padding-left:20px;margin-bottom:8px;color:#555;line-height:1.6}
+#projects .project-content li::before{content:"•";position:absolute;left:3px;top:0;color:#111;font-weight:900}
+
+/* CONTACT */
+#contact .contact-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:.85fr 1.15fr;gap:24px;align-items:stretch}
+#contact .contact-info,#contact .contact-form{position:relative;padding:30px;background:#fff;border:1px solid #dedede;border-radius:14px;box-shadow:0 8px 28px rgba(0,0,0,.035);overflow:hidden}
+#contact .contact-info::before,#contact .contact-form::before{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:#111}
+#contact .contact-info h3{margin:7px 0 12px;font-size:24px;line-height:1.3}
+#contact .contact-info p{margin-bottom:18px;color:#5d5d5d;line-height:1.75}
+#contact .contact-info a{position:relative;display:block;width:max-content;margin-top:12px;padding-left:20px;color:#333;font-size:14px;font-weight:600;line-height:1.6}
+#contact .contact-info a::before{content:"•";position:absolute;left:2px;top:0;color:#111;font-size:18px;font-weight:900}
+#contact .contact-info a:hover{color:#777}
+#contact .contact-form h3{margin:4px 0 22px;font-size:20px}
+#contact form{display:flex;flex-direction:column;width:100%}
+#contact .form-group{display:flex;flex-direction:column;width:100%;margin-bottom:18px}
+#contact .form-group label,#contact form>label{display:flex;align-items:center;gap:8px;width:100%;margin-bottom:8px;color:#222;font-size:13px;font-weight:800;line-height:1.4}
+#contact .form-group label::before,#contact form>label::before{content:"";width:5px;height:5px;flex:0 0 5px;background:#111;border-radius:50%}
+#contact .form-group input,#contact .form-group textarea,#contact form input,#contact form textarea{display:block;width:100%;padding:13px 14px;background:#fafafa;color:#111;border:1px solid #d5d5d5;border-radius:8px;outline:none;font-size:14px;line-height:1.5;transition:border-color .2s ease,box-shadow .2s ease,background .2s ease}
+#contact input::placeholder,#contact textarea::placeholder{color:#999}
+#contact .form-group input:hover,#contact .form-group textarea:hover{border-color:#aaa}
+#contact .form-group input:focus,#contact .form-group textarea:focus,#contact form input:focus,#contact form textarea:focus{background:#fff;border-color:#111;box-shadow:0 0 0 3px rgba(17,17,17,.06)}
+#contact .form-group textarea,#contact textarea{min-height:155px;resize:vertical}
+#contact .btn,#contact button[type="submit"],#contact input[type="submit"]{display:inline-flex;align-items:center;justify-content:center;width:100%;min-height:48px;margin-top:2px;padding:0 20px;background:#111;color:#fff;border:1px solid #111;border-radius:8px;cursor:pointer;font-size:14px;font-weight:700;transition:transform .2s ease,background .2s ease,box-shadow .2s ease}
+#contact .btn:hover,#contact button[type="submit"]:hover,#contact input[type="submit"]:hover{background:#333;transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,0,0,.1)}
+
+/* RESPONSIVE */
+@media (max-width:850px){
+ #about .about-info-grid,#skills .skills-grid{grid-template-columns:repeat(2,1fr)}
+ #projects .projects-grid,#contact .contact-grid{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+ #about .about-intro,#about .about-info-card,#contact .contact-info,#contact .contact-form{padding:22px}
+ #about .about-info-grid,#skills .skills-grid{grid-template-columns:1fr}
+ #skills .skill-card{padding-left:48px}
+ #skills .skill-card::before{left:21px}
+ #skills .skill-card::after{left:24px}
+ #projects .project-content{padding:23px}
+}
+

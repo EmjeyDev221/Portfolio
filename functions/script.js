@@ -1,76 +1,102 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    const navbar = document.querySelector('.navbar');
+    /* ================================
+       MOBILE NAVIGATION
+    ================================= */
+
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
 
     if (menuToggle && navLinks) {
 
-        menuToggle.addEventListener('click', function () {
+        menuToggle.addEventListener("click", function () {
 
-            navLinks.classList.toggle('active');
+            navLinks.classList.toggle("active");
 
-            const isActive =
-                navLinks.classList.contains('active');
+            const isOpen = navLinks.classList.contains("active");
 
             menuToggle.setAttribute(
-                'aria-expanded',
-                isActive ? 'true' : 'false'
+                "aria-expanded",
+                isOpen ? "true" : "false"
             );
 
         });
 
-        navLinks.querySelectorAll('a').forEach(function (link) {
+        /* Close menu after clicking a navigation link */
 
-            link.addEventListener('click', function () {
+        const links = navLinks.querySelectorAll("a");
 
-                navLinks.classList.remove('active');
+        links.forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                navLinks.classList.remove("active");
 
                 menuToggle.setAttribute(
-                    'aria-expanded',
-                    'false'
+                    "aria-expanded",
+                    "false"
                 );
 
             });
 
         });
-
     }
 
 
-    if (navbar) {
+    /* ================================
+       NAVBAR SCROLL EFFECT
+    ================================= */
 
-        window.addEventListener('scroll', function () {
+    const navbar = document.querySelector(".navbar");
 
-            if (window.scrollY > 30) {
+    function handleNavbarScroll() {
 
-                navbar.classList.add('scrolled');
+        if (!navbar) {
+            return;
+        }
 
-            } else {
+        if (window.scrollY > 20) {
 
-                navbar.classList.remove('scrolled');
+            navbar.classList.add("scrolled");
 
-            }
+        } else {
 
-        });
+            navbar.classList.remove("scrolled");
+
+        }
 
     }
 
+    window.addEventListener(
+        "scroll",
+        handleNavbarScroll
+    );
+
+    handleNavbarScroll();
+
+
+    /* ================================
+       REVEAL ANIMATION
+    ================================= */
+
+    document.body.classList.add("js-ready");
 
     const revealElements =
-        document.querySelectorAll('.reveal');
+        document.querySelectorAll(".reveal");
 
-    if ('IntersectionObserver' in window) {
+    if ("IntersectionObserver" in window) {
 
         const observer =
             new IntersectionObserver(
-                function (entries) {
+                function (entries, observer) {
 
                     entries.forEach(function (entry) {
 
                         if (entry.isIntersecting) {
 
-                            entry.target.classList.add('visible');
+                            entry.target.classList.add(
+                                "visible"
+                            );
 
                             observer.unobserve(
                                 entry.target
@@ -82,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 },
                 {
-                    threshold: 0.15
+                    threshold: 0.12
                 }
             );
 
@@ -94,12 +120,61 @@ document.addEventListener('DOMContentLoaded', function () {
 
     } else {
 
+        /* Fallback for older browsers */
+
         revealElements.forEach(function (element) {
 
-            element.classList.add('visible');
+            element.classList.add("visible");
 
         });
 
     }
+
+
+    /* ================================
+       SMOOTH SCROLL
+    ================================= */
+
+    const anchorLinks =
+        document.querySelectorAll(
+            'a[href^="#"]'
+        );
+
+    anchorLinks.forEach(function (link) {
+
+        link.addEventListener(
+            "click",
+            function (event) {
+
+                const targetId =
+                    this.getAttribute("href");
+
+                if (
+                    !targetId ||
+                    targetId === "#"
+                ) {
+                    return;
+                }
+
+                const target =
+                    document.querySelector(
+                        targetId
+                    );
+
+                if (!target) {
+                    return;
+                }
+
+                event.preventDefault();
+
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }
+        );
+
+    });
 
 });

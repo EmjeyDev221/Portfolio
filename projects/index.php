@@ -1,42 +1,47 @@
-<section class="section projects-section" id="projects">
+<?php
+require_once __DIR__ . '/../config/db.php';
+
+$projects = [];
+try {
+    $stmt = $pdo->query("SELECT * FROM projects WHERE is_active = 1 ORDER BY display_order ASC, id ASC");
+    $projects = $stmt->fetchAll();
+} catch (PDOException $e) {}
+
+if (!$projects) {
+    $projects = [
+        ['title'=>'Facilities & Administrative Management System','description'=>'A web-based management system for facilities, visitors, documents, contracts, legal records, permits, retention, compliance, dashboards and reporting.','technologies'=>'PHP, MySQL, JavaScript, Docker','project_type'=>'Capstone Project'],
+        ['title'=>'Integrated Enrollment & Learning Management System','description'=>'An integrated web application designed to support enrollment workflows and learning management functionalities.','technologies'=>'PHP, MySQL, HTML, CSS','project_type'=>'Academic Project'],
+        ['title'=>'Personal Portfolio Website','description'=>'A responsive personal portfolio focused on presenting skills, experience, projects and resume information in one place.','technologies'=>'PHP, CSS, JavaScript, GitHub','project_type'=>'Personal Project']
+    ];
+}
+?>
+<div class="projects-section">
     <div class="section-heading"><span></span><h2>PROJECTS</h2><span></span></div>
-    <div class="project-grid">
-        <article class="project-card reveal">
-            <div class="project-index">01</div>
-            <div class="project-body">
-                <p class="project-type">CAPSTONE PROJECT</p>
-                <h3>Facilities & Administrative Management System</h3>
-                <p>
-                    A web-based management system for facilities, visitors,
-                    documents, contracts, legal records, permits, retention,
-                    compliance, dashboards and reporting.
-                </p>
-                <div class="tags"><span>PHP</span><span>MySQL</span><span>JavaScript</span><span>Docker</span></div>
-            </div>
-        </article>
-        <article class="project-card reveal">
-            <div class="project-index">02</div>
-            <div class="project-body">
-                <p class="project-type">ACADEMIC PROJECT</p>
-                <h3>Integrated Enrollment & Learning Management System</h3>
-                <p>
-                    An integrated web application designed to support enrollment
-                    workflows and learning management functionalities.
-                </p>
-                <div class="tags"><span>PHP</span><span>MySQL</span><span>HTML/CSS</span></div>
-            </div>
-        </article>
-        <article class="project-card reveal">
-            <div class="project-index">03</div>
-            <div class="project-body">
-                <p class="project-type">PERSONAL / PRACTICE</p>
-                <h3>Portfolio Website</h3>
-                <p>
-                    A responsive personal portfolio focused on presenting skills,
-                    experience, projects and resume information in one place.
-                </p>
-                <div class="tags"><span>PHP</span><span>CSS</span><span>JavaScript</span><span>GitHub</span></div>
-            </div>
-        </article>
+    <div class="projects-grid">
+        <?php foreach ($projects as $i => $project):
+            $techText = $project['technologies'] ?? $project['tech_stack'] ?? '';
+            $techs = preg_split('/\s*,\s*/', trim($techText), -1, PREG_SPLIT_NO_EMPTY);
+        ?>
+            <article class="project-card reveal">
+                <div class="project-top">
+                    <span class="project-number"><?= str_pad((string)($i + 1), 2, '0', STR_PAD_LEFT) ?></span>
+                    <span class="project-type"><?= htmlspecialchars($project['project_type'] ?? 'Project') ?></span>
+                </div>
+                <?php if (!empty($project['image'])): ?>
+                    <div class="project-image"><img src="images/<?= htmlspecialchars($project['image']) ?>" alt="<?= htmlspecialchars($project['title']) ?>"></div>
+                <?php endif; ?>
+                <div class="project-content">
+                    <h3><?= htmlspecialchars($project['title']) ?></h3>
+                    <p><?= htmlspecialchars($project['description']) ?></p>
+                    <?php if ($techs): ?><div class="tech-list">
+                        <?php foreach ($techs as $tech): ?><span class="tech-tag"><?= htmlspecialchars($tech) ?></span><?php endforeach; ?>
+                    </div><?php endif; ?>
+                    <div class="project-links">
+                        <?php if (!empty($project['github_url'])): ?><a class="project-link" href="<?= htmlspecialchars($project['github_url']) ?>" target="_blank" rel="noopener">GitHub ↗</a><?php endif; ?>
+                        <?php if (!empty($project['live_url'])): ?><a class="project-link" href="<?= htmlspecialchars($project['live_url']) ?>" target="_blank" rel="noopener">Live Demo ↗</a><?php endif; ?>
+                    </div>
+                </div>
+            </article>
+        <?php endforeach; ?>
     </div>
-</section>
+</div>
