@@ -1,12 +1,12 @@
 <?php
-
+// Local XAMPP / MariaDB connection
 $host = 'localhost';
 $dbname = 'portfolio_db';
 $username = 'root';
 $password = '';
 $charset = 'utf8mb4';
 
-$dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
+$dsn = "mysql:host={$host};dbname={$dbname};charset={$charset}";
 
 $options = [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
@@ -17,5 +17,6 @@ $options = [
 try {
     $pdo = new PDO($dsn, $username, $password, $options);
 } catch (PDOException $e) {
-    die("Database connection failed: " . $e->getMessage());
+    // Keep the public portfolio usable even before the database is configured.
+    $pdo = null;
 }
