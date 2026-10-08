@@ -3,7 +3,7 @@
     <div class="container nav-inner">
 
         <a href="#home" class="brand">
-            MJS<span>.</span>
+            MARK JOSEPH SOL<span>.</span>
         </a>
 
         <button

@@ -32,8 +32,16 @@ if (!$projects) {
     ];
 }
 ?>
-
-<div class="projects-section">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/index.php">
+</head>
+<body>
+    <div class="projects-section">
 
     <div class="section-heading">
         <span></span>
@@ -130,3 +138,6 @@ if (!$projects) {
     </div>
 
 </div>
+
+</body>
+</html>
