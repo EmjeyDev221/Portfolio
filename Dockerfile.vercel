@@ -1,0 +1,20 @@
+
+FROM php:8.2-apache
+
+RUN a2enmod rewrite \
+    && docker-php-ext-install mysqli pdo_mysql
+
+RUN printf '<Directory /var/www/html>\n\
+    AllowOverride All\n\
+    Require all granted\n\
+</Directory>\n' \
+    > /etc/apache2/conf-available/portfolio.conf \
+    && a2enconf portfolio
+
+WORKDIR /var/www/html
+
+COPY . /var/www/html/
+
+EXPOSE 80
+
+CMD ["apache2-foreground"]

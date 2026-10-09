@@ -1350,6 +1350,13 @@ textarea {
 
 }
 
+/* Fallback: show content if reveal animation does not initialize */
+.reveal {
+    opacity: 1;
+    transform: none;
+}
+
+
 
 
 .reveal.visible {
